@@ -1,0 +1,33 @@
+.panel.panel-default
+  .panel-heading 
+    | Pedido
+  .panel-body
+    div
+        label(for="cliente") Cliente
+        input.form-control#cliente(type="text", placeholder="Cliente", ng-model="order.cliente")
+    br
+    div
+        .panel.panel-info
+            .panel-heading 
+                | Produtos
+                button.btn.btn-xs.btn-primary.pull-right(ng-click="add_product()") 
+                    i.fa.fa-plus
+                    | &nbsp Adicionar produto
+            .panel-body
+            table.table
+                tr
+                    th Produto
+                    th Valor
+                    th Remover
+                tr(ng-repeat="item in order.itens")
+                    td 
+                        input.form-control(type="text", placeholder="Produto", ng-model="item.produto")
+                    td
+                        item-value(ng-model="item.valor")
+                    td
+                        a.btn-link
+                            i.fa.fa-trash(ng-click="deleteItem($index)")
+    br
+    div
+        button.btn.btn-primary(ng-click="save()", ng-disabled="check_save_disabled()")
+            | {{order._id ? 'Confirmar alteração' : 'Criar'}}

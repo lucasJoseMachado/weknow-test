@@ -1,0 +1,19 @@
+.panel.panel-default
+  .panel-heading 
+    | Lista de Produtos
+    button.btn.btn-xs.btn-primary.pull-right(ui-sref="product_new") 
+        i.fa.fa-plus
+        | &nbsp Criar novo produto
+  .panel-body
+  table.table
+    tr
+        th Código
+        th Descrição
+        th Remover
+    tr(ng-repeat="product in products track by $index")
+        td
+            a(ng-bind="product._id", ui-sref="product_edit({id: product._id})")
+        td(ng-bind="product.descricao")
+        td
+            a(ng-click="delete($index)")
+                i.fa.fa-trash-o

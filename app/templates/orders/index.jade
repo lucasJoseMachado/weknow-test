@@ -1,0 +1,19 @@
+.panel.panel-default
+  .panel-heading 
+    | Lista de Pedidos
+    button.btn.btn-xs.btn-primary.pull-right(ui-sref="order_new") 
+        i.fa.fa-plus
+        | &nbsp Criar novo pedido
+  .panel-body
+  table.table
+    tr
+        th Código
+        th Cliente
+        th Remover
+    tr(ng-repeat="order in orders track by $index")
+        td
+            a(ng-bind="order._id", ui-sref="order_edit({id: order._id})")
+        td(ng-bind="order.cliente")
+            td
+                a(ng-click="delete($index)")
+                    i.fa.fa-trash-o

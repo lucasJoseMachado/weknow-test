@@ -1,0 +1,11 @@
+.panel.panel-default
+  .panel-heading 
+    | Produto
+  .panel-body
+    div
+        label(for="descricao") Descrição
+        input.form-control#descricao(type="text", placeholder="Descrição", ng-model="product.descricao")
+    br
+    div
+        button.btn.btn-primary(ng-click="save()", ng-disabled="check_save_disabled()")
+            | {{product._id ? 'Confirmar alteração' : 'Criar'}}

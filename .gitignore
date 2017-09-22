@@ -1,0 +1,15 @@
+*.sw*
+*~
+build/
+bin/
+node_modules/
+.DS_Store
+db/schema.rb
+.sass-cache
+generated/
+vendor/
+vendor/bower
+vendor
+vendor/bower
+vendor/*
+vendor/bower/*
